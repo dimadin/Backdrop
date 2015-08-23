@@ -26,7 +26,7 @@ class HM_Backdrop_Task {
 			'callback' => $this->callback,
 			'params' => $this->params
 		);
-		set_transient( 'hm_backdrop-' . $this->key, $data, 300 );
+		WP_Temporary::set( 'hm_backdrop-' . $this->key, $data, 300 );
 		add_action( 'shutdown', array( $this, 'spawn_server' ) );
 
 		return true;
@@ -41,7 +41,7 @@ class HM_Backdrop_Task {
 			return new WP_Error( 'hm_backdrop_not_scheduled', __( 'Task is not scheduled to run', 'hm_backdrop' ) );
 		}
 
-		delete_transient( 'hm_backdrop-' . $this->key );
+		WP_Temporary::delete( 'hm_backdrop-' . $this->key );
 		return true;
 	}
 
@@ -62,7 +62,7 @@ class HM_Backdrop_Task {
 	}
 
 	protected function get_data() {
-		return get_transient( 'hm_backdrop-' . $this->key );
+		return WP_Temporary::get( 'hm_backdrop-' . $this->key );
 	}
 
 	protected function get_unique_id() {
