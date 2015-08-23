@@ -1,0 +1,20 @@
+{
+	"name": "dimadin/backdrop",
+	"description": "Backdrop",
+	"homepage": "https://github.com/dimadin/Backdrop",
+	"type": "library",
+	"license": "GPL",
+	"authors": [
+		{
+			"name": "Milan Dinić",
+			"email": "milan@srpski.biz",
+			"homepage": "http://blog.milandinic.com/"
+		}
+	],
+	"require": {
+		"dimadin/wp-temporary": "dev-master"
+	},
+	"autoload": {
+        "files": ["hm-backdrop.php"]
+    }
+}
