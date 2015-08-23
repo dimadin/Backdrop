@@ -3,6 +3,8 @@
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+require __DIR__ . '/vendor/autoload.php';
+
 // Don't load if it's already loaded
 if ( defined( 'BACKDROP_VER' ) ) {
 	return;
