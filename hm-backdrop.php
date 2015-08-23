@@ -1,5 +1,13 @@
 <?php
 
+// Don't load if it's already loaded
+if ( defined( 'BACKDROP_VER' ) ) {
+	return;
+}
+
+// Indicate that Backdrop is installed/active so that other plugins can detect it
+define( 'BACKDROP_VER', '1.0' );
+
 require dirname( __FILE__ ) . '/server.php';
 require dirname( __FILE__ ) . '/task.php';
 
