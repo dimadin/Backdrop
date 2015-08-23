@@ -1,5 +1,8 @@
 <?php
 
+/* Exit if accessed directly */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 // Don't load if it's already loaded
 if ( defined( 'BACKDROP_VER' ) ) {
 	return;
