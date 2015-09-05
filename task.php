@@ -26,7 +26,7 @@ class HM_Backdrop_Task {
 			'callback' => $this->callback,
 			'params' => $this->params
 		);
-		WP_Temporary::set( 'hm_backdrop-' . $this->key, $data, 300 );
+		WP_Temporary::set( 'hm_backdrop-' . $this->key, $data, 5 * MINUTE_IN_SECONDS );
 		add_action( 'shutdown', array( $this, 'spawn_server' ) );
 
 		return true;
