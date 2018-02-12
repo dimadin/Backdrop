@@ -27,16 +27,7 @@ class Server {
 	}
 
 	public static function spawn() {
-		$class = get_class();
-		if ( function_exists( 'get_called_class' ) ) {
-			$class = get_called_class();
-		}
-
-		return call_user_func( array( $class, 'spawn_run' ), $class );
-	}
-
-	protected static function spawn_run( $class ) {
-		$server = new $class();
+		$server = new static();
 		$server->run();
 		exit;
 	}
