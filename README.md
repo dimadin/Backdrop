@@ -62,7 +62,7 @@ None.
 
 #### Return Value
 Either `true`, or a `WP_Error` on failure. The error object will indicate the
-type of error; typically this is a `hm_backdrop_scheduled` if the task is
+type of error; typically this is a `md_backdrop_scheduled` if the task is
 already scheduled to run or is currently running.
 
 ### `Task::is_scheduled()`
@@ -85,7 +85,7 @@ None.
 
 #### Return Value
 Either `true`, or a `WP_Error` on failure. The error object will indicate the
-type of error; typically this is a `hm_backdrop_not_scheduled` if the task
+type of error; typically this is a `md_backdrop_not_scheduled` if the task
 hasn't been scheduled.
 
 #### `Main::init()`

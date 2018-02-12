@@ -24,14 +24,14 @@ class Task {
 	public function schedule() {
 
 		if ( $this->is_scheduled() ) {
-			return new WP_Error( 'hm_backdrop_scheduled', 'Task is already scheduled to run' );
+			return new WP_Error( 'md_backdrop_scheduled', 'Task is already scheduled to run' );
 		}
 
 		$data = array(
 			'callback' => $this->callback,
 			'params' => $this->params
 		);
-		WP_Temporary::set( 'hm_backdrop-' . $this->key, $data, 5 * MINUTE_IN_SECONDS );
+		WP_Temporary::set( 'md_backdrop-' . $this->key, $data, 5 * MINUTE_IN_SECONDS );
 		add_action( 'shutdown', array( $this, 'spawn_server' ) );
 
 		return true;
@@ -43,17 +43,17 @@ class Task {
 
 	public function cancel() {
 		if ( ! $this->is_scheduled() ) {
-			return new WP_Error( 'hm_backdrop_not_scheduled', 'Task is not scheduled to run' );
+			return new WP_Error( 'md_backdrop_not_scheduled', 'Task is not scheduled to run' );
 		}
 
-		WP_Temporary::delete( 'hm_backdrop-' . $this->key );
+		WP_Temporary::delete( 'md_backdrop-' . $this->key );
 		return true;
 	}
 
 	public function spawn_server() {
 		$server_url = admin_url( 'admin-ajax.php' );
 		$data = array(
-			'action' => 'hm_backdrop_run',
+			'action' => 'md_backdrop_run',
 			'key'    => $this->key,
 		);
 		$args = array(
@@ -67,7 +67,7 @@ class Task {
 	}
 
 	protected function get_data() {
-		return WP_Temporary::get( 'hm_backdrop-' . $this->key );
+		return WP_Temporary::get( 'md_backdrop-' . $this->key );
 	}
 
 	protected function get_unique_id() {
