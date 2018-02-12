@@ -1,6 +1,11 @@
 <?php
 
-class HM_Backdrop_Task {
+namespace dimadin\WP\Library\Backdrop;
+
+use WP_Temporary;
+use WP_Error;
+
+class Task {
 	protected $key;
 	protected $callback;
 	protected $params = array();

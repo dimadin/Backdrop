@@ -15,6 +15,8 @@
 		"dimadin/wp-temporary": "dev-master"
 	},
 	"autoload": {
-        "files": ["hm-backdrop.php"]
-    }
+		"psr-4": {
+			"dimadin\\WP\\Library\\Backdrop\\": "inc/"
+		}
+	}
 }

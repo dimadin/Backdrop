@@ -3,6 +3,9 @@ Backdrop is a simple library that does one thing: allows you to run one-off
 tasks in the background.
 
 ## How to Use
+Either use it as Composer package or include all files from `/inc` directory,
+then register it with `Main::init()` not after `admin_init` hook.
+
 ```php
 function my_awesome_function( $id ) {
 	// Download initial data to my site. Might take a long time!
@@ -17,10 +20,12 @@ function my_awesome_function( $id ) {
 
 add_action( 'init', function () {
 	if ( ! get_option( 'initial_data' ) ) {
-		$task = new \HM\Backdrop\Task( 'my_awesome_function', get_current_user_id() );
+		$task = new \dimadin\WP\Library\Backdrop\Task( 'my_awesome_function', get_current_user_id() );
 		$task->schedule();
 	}
 } );
+
+add_action( 'admin_init', [ '\dimadin\WP\Library\Backdrop\Main', 'init' ] );
 ```
 
 ## API
@@ -83,32 +88,19 @@ Either `true`, or a `WP_Error` on failure. The error object will indicate the
 type of error; typically this is a `hm_backdrop_not_scheduled` if the task
 hasn't been scheduled.
 
+#### `Main::init()`
+Register Backdrop.
+
+#### Arguments
+None.
+
+#### Return Value
+None.
+
 ## Compatibility
-Backdrop is compatible with PHP 5.2 and upwards.
-
-### PHP 5.2
-Use the `HM_Backdrop_Task` class (and `HM_Backdrop_Server`).
-
-**Important note:** If subclassing `HM_Backdrop_Server` with 5.2 compatibility,
-you *must* reimplement the `spawn` method, as PHP 5.2 does not include late
-static bindings. This is automatically handled for 5.3+.
-
-Here's a minimal implementation that you can use:
-
-```
-class MyBackdrop_Server extends HM_Backdrop_Server {
-	public static function spawn() {
-		return self::spawn_run( __CLASS__ );
-	}
-}
-```
-
-### PHP 5.3+
-Use the `HM\Backdrop\Task` class (and `HM\Backdrop\Server`). You can also import
-the classes with the `use` keyword; for example, `use HM\Backdrop\Task` will
-allow you to create tasks with `new Task`.
+Backdrop is compatible with PHP 5.4 and upwards.
 
 ## License
 Backdrop is licensed under the GPL version 2.
 
-Copyright 2014 Human Made Limited
+Copyright 2014 Human Made Limited, 2015-2018 Milan Dinić
