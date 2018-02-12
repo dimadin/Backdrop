@@ -3,7 +3,7 @@
 	"description": "Backdrop",
 	"homepage": "https://github.com/dimadin/Backdrop",
 	"type": "library",
-	"license": "GPL",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Milan Dinić",
