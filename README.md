@@ -1,10 +1,22 @@
 # Backdrop
+
+[![Build Status](https://www.travis-ci.org/dimadin/Backdrop.svg?branch=master)](https://www.travis-ci.org/dimadin/Backdrop)
+
 Backdrop is a simple library that does one thing: allows you to run one-off
 tasks in the background.
 
 ## How to Use
-Either use it as Composer package or include all files from `/inc` directory,
-then register it with `Main::init()` not after `admin_init` hook.
+Backdrop is available as Composer package that you can use in your project.
+
+```bash
+composer require dimadin/backdrop
+```
+
+Alternately, you can download and include all files from `/inc` directory in your project.
+In either case, you then need to register it with `Main::init()` not after `admin_init` hook.
+
+In this example, we create task if option doesn't exist, pass parameter to it, and then schedule it,
+while also hooking initialization of Backdrop:
 
 ```php
 function my_awesome_function( $id ) {
@@ -74,7 +86,7 @@ None.
 #### Return Value
 Boolean indicating whether your task is scheduled to run, or is already running.
 
-#### `Task::cancel()`
+### `Task::cancel()`
 Cancels a previously scheduled task.
 
 Note that if the task is already running, this will not cancel execution; it
@@ -88,7 +100,7 @@ Either `true`, or a `WP_Error` on failure. The error object will indicate the
 type of error; typically this is a `md_backdrop_not_scheduled` if the task
 hasn't been scheduled.
 
-#### `Main::init()`
+### `Main::init()`
 Register Backdrop.
 
 #### Arguments
