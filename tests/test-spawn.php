@@ -33,8 +33,8 @@ class Tests_Spawn extends WP_UnitTestCase {
 	/**
 	 * Store URL and arguments passed when making HTTP request to class properties.
 	 *
-	 * @param array  $args
-	 * @param string $url
+	 * @param array  $args An array of HTTP request arguments.
+	 * @param string $url The request URL.
 	 * @return array $args
 	 */
 	public function filter_http_request_args( $args, $url ) {

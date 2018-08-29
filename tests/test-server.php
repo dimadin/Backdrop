@@ -30,11 +30,11 @@ class Tests_Server extends WP_UnitTestCase {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $first
-	 * @param string $second
+	 * @param string $first First parameter.
+	 * @param string $second Second parameter.
 	 */
 	public function callback_test_params( $first, $second ) {
-		echo 'Passing' . $first . $second;
+		echo 'Passing' . $first . $second; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -54,6 +54,7 @@ class Tests_Server extends WP_UnitTestCase {
 
 		// Get property value by passing Task instance again to mock passed key.
 		$key = $key_reflection->getValue( $task );
+
 		$_POST['key'] = $key;
 
 		ob_start();
@@ -85,6 +86,7 @@ class Tests_Server extends WP_UnitTestCase {
 
 		// Get property value by passing Task instance again to mock passed key.
 		$key = $key_reflection->getValue( $task );
+
 		$_POST['key'] = $key;
 
 		ob_start();
