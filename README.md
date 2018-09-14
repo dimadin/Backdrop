@@ -42,6 +42,8 @@ add_action( 'admin_init', [ '\dimadin\WP\Library\Backdrop\Main', 'init' ] );
 ```
 
 ## API
+Full code reference is available at [http://api.milandinic.com/backdrop/](http://api.milandinic.com/backdrop/).
+
 ### `Task::__construct( $callback [, $...] )`
 Creating a new task sets up all of the internal data for your task. Pass in your
 callback followed by your arguments to the function, and Backdrop will call it
