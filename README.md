@@ -1,7 +1,7 @@
 # Backdrop
 
 [![Build Status](https://www.travis-ci.org/dimadin/Backdrop.svg?branch=master)](https://www.travis-ci.org/dimadin/Backdrop)
-[![Latest Stable Version](https://poser.pugx.org/dimadin/Backdrop/version)](https://packagist.org/packages/dimadin/Backdropy)
+[![Latest Stable Version](https://poser.pugx.org/dimadin/Backdrop/version)](https://packagist.org/packages/dimadin/backdrop)
 
 Backdrop is a simple library that does one thing: allows you to run one-off
 tasks in the background.
