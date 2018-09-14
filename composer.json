@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": ">=5.4",
-		"dimadin/wp-temporary": "dev-master"
+		"dimadin/wp-temporary": "^1.0"
 	},
 	"autoload": {
 		"psr-4": {
